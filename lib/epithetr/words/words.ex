@@ -101,4 +101,100 @@ defmodule Epithetr.Words do
   def change_noun(%Noun{} = noun) do
     Noun.changeset(noun, %{})
   end
+
+  alias Epithetr.Words.Adjective
+
+  @doc """
+  Returns the list of adjectives.
+
+  ## Examples
+
+      iex> list_adjectives()
+      [%Adjective{}, ...]
+
+  """
+  def list_adjectives do
+    Repo.all(Adjective)
+  end
+
+  @doc """
+  Gets a single adjective.
+
+  Raises `Ecto.NoResultsError` if the Adjective does not exist.
+
+  ## Examples
+
+      iex> get_adjective!(123)
+      %Adjective{}
+
+      iex> get_adjective!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_adjective!(id), do: Repo.get!(Adjective, id)
+
+  @doc """
+  Creates a adjective.
+
+  ## Examples
+
+      iex> create_adjective(%{field: value})
+      {:ok, %Adjective{}}
+
+      iex> create_adjective(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create_adjective(attrs \\ %{}) do
+    %Adjective{}
+    |> Adjective.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Updates a adjective.
+
+  ## Examples
+
+      iex> update_adjective(adjective, %{field: new_value})
+      {:ok, %Adjective{}}
+
+      iex> update_adjective(adjective, %{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def update_adjective(%Adjective{} = adjective, attrs) do
+    adjective
+    |> Adjective.changeset(attrs)
+    |> Repo.update()
+  end
+
+  @doc """
+  Deletes a Adjective.
+
+  ## Examples
+
+      iex> delete_adjective(adjective)
+      {:ok, %Adjective{}}
+
+      iex> delete_adjective(adjective)
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def delete_adjective(%Adjective{} = adjective) do
+    Repo.delete(adjective)
+  end
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking adjective changes.
+
+  ## Examples
+
+      iex> change_adjective(adjective)
+      %Ecto.Changeset{source: %Adjective{}}
+
+  """
+  def change_adjective(%Adjective{} = adjective) do
+    Adjective.changeset(adjective, %{})
+  end
 end

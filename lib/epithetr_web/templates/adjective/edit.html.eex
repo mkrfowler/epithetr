@@ -1,0 +1,5 @@
+<h2>Edit Adjective</h2>
+
+<%= render "form.html", Map.put(assigns, :action, adjective_path(@conn, :update, @adjective)) %>
+
+<span><%= link "Back", to: adjective_path(@conn, :index) %></span>

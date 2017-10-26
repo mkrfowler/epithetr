@@ -1,0 +1,26 @@
+<h2>Listing Adjectives</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Word</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for adjective <- @adjectives do %>
+    <tr>
+      <td><%= adjective.word %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: adjective_path(@conn, :show, adjective), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: adjective_path(@conn, :edit, adjective), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: adjective_path(@conn, :delete, adjective), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Adjective", to: adjective_path(@conn, :new) %></span>

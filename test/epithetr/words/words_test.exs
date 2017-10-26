@@ -62,4 +62,64 @@ defmodule Epithetr.WordsTest do
       assert %Ecto.Changeset{} = Words.change_noun(noun)
     end
   end
+
+  describe "adjectives" do
+    alias Epithetr.Words.Adjective
+
+    @valid_attrs %{word: "some word"}
+    @update_attrs %{word: "some updated word"}
+    @invalid_attrs %{word: nil}
+
+    def adjective_fixture(attrs \\ %{}) do
+      {:ok, adjective} =
+        attrs
+        |> Enum.into(@valid_attrs)
+        |> Words.create_adjective()
+
+      adjective
+    end
+
+    test "list_adjectives/0 returns all adjectives" do
+      adjective = adjective_fixture()
+      assert Words.list_adjectives() == [adjective]
+    end
+
+    test "get_adjective!/1 returns the adjective with given id" do
+      adjective = adjective_fixture()
+      assert Words.get_adjective!(adjective.id) == adjective
+    end
+
+    test "create_adjective/1 with valid data creates a adjective" do
+      assert {:ok, %Adjective{} = adjective} = Words.create_adjective(@valid_attrs)
+      assert adjective.word == "some word"
+    end
+
+    test "create_adjective/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Words.create_adjective(@invalid_attrs)
+    end
+
+    test "update_adjective/2 with valid data updates the adjective" do
+      adjective = adjective_fixture()
+      assert {:ok, adjective} = Words.update_adjective(adjective, @update_attrs)
+      assert %Adjective{} = adjective
+      assert adjective.word == "some updated word"
+    end
+
+    test "update_adjective/2 with invalid data returns error changeset" do
+      adjective = adjective_fixture()
+      assert {:error, %Ecto.Changeset{}} = Words.update_adjective(adjective, @invalid_attrs)
+      assert adjective == Words.get_adjective!(adjective.id)
+    end
+
+    test "delete_adjective/1 deletes the adjective" do
+      adjective = adjective_fixture()
+      assert {:ok, %Adjective{}} = Words.delete_adjective(adjective)
+      assert_raise Ecto.NoResultsError, fn -> Words.get_adjective!(adjective.id) end
+    end
+
+    test "change_adjective/1 returns a adjective changeset" do
+      adjective = adjective_fixture()
+      assert %Ecto.Changeset{} = Words.change_adjective(adjective)
+    end
+  end
 end

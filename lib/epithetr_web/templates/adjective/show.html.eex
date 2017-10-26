@@ -1,0 +1,13 @@
+<h2>Show Adjective</h2>
+
+<ul>
+
+  <li>
+    <strong>Word:</strong>
+    <%= @adjective.word %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: adjective_path(@conn, :edit, @adjective) %></span>
+<span><%= link "Back", to: adjective_path(@conn, :index) %></span>
