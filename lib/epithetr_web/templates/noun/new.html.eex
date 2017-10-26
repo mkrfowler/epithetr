@@ -1,0 +1,5 @@
+<h2>New Noun</h2>
+
+<%= render "form.html", Map.put(assigns, :action, noun_path(@conn, :create)) %>
+
+<span><%= link "Back", to: noun_path(@conn, :index) %></span>

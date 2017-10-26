@@ -1,0 +1,13 @@
+<h2>Show Noun</h2>
+
+<ul>
+
+  <li>
+    <strong>Word:</strong>
+    <%= @noun.word %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: noun_path(@conn, :edit, @noun) %></span>
+<span><%= link "Back", to: noun_path(@conn, :index) %></span>
