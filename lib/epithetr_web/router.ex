@@ -22,7 +22,9 @@ defmodule EpithetrWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", EpithetrWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", EpithetrWeb.Api do
+    pipe_through :api
+
+    get "/words", WordController, :index
+  end
 end
