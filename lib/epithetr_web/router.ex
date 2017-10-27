@@ -11,6 +11,7 @@ defmodule EpithetrWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug CORSPlug
   end
 
   scope "/", EpithetrWeb do
