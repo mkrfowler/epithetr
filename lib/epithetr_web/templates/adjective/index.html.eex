@@ -1,4 +1,4 @@
-<h2>Listing Adjectives</h2>
+<h2>Listing Descriptors</h2>
 
 <table class="table">
   <thead>
@@ -23,4 +23,4 @@
   </tbody>
 </table>
 
-<span><%= link "New Adjective", to: adjective_path(@conn, :new) %></span>
+<span><%= link "New Descriptor", to: adjective_path(@conn, :new) %></span>

@@ -1,4 +1,4 @@
-<h2>New Adjective</h2>
+<h2>New Descriptor</h2>
 
 <%= render "form.html", Map.put(assigns, :action, adjective_path(@conn, :create)) %>
 
