@@ -8,9 +8,13 @@
   <div class="form-group">
     <%= label f, :word, class: "control-label" %>
     <%= text_input f, :word, class: "form-control" %>
-    <%= label f, :wholesome, class: "control-label" %>
-    <%= checkbox f, :wholesome %>
     <%= error_tag f, :word %>
+
+    <label class="form-switch">
+      <%= checkbox f, :wholesome %>
+      <i class="form-icon"></i>Wholesome
+    </label>
+    <%= error_tag f, :wholesome %>
   </div>
 
   <div class="form-group">

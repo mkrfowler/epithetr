@@ -9,6 +9,7 @@
 
     <title>Epithetr</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
   </head>
 
   <body>

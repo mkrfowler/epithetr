@@ -1,1 +1,66 @@
-<h2>HI!</h2>
+<h1>Epithetr</h1>
+<div class='container columns'>
+  <div class='col-6'>
+    <h2>Descriptors</h2>
+
+    <span><%= link "New Descriptor", to: adjective_path(@conn, :new) %></span>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Word</th>
+          <th>Wholesome</th>
+
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+    <%= for adjective <- @adjectives do %>
+        <tr>
+          <td><%= adjective.word %></td>
+          <td><%= adjective.wholesome %></td>
+
+          <td>
+            <div class="btn-group btn-group-block">
+              <%= link "Edit", to: adjective_path(@conn, :edit, adjective), class: "btn btn-sm" %>
+              <%= link "Delete", to: adjective_path(@conn, :delete, adjective), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-primary btn-sm" %>
+            </div>
+          </td>
+        </tr>
+    <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class='col-6'>
+    <h2>Nouns</h2>
+
+    <span><%= link "New Noun", to: noun_path(@conn, :new) %></span>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Word</th>
+          <th>Wholesome</th>
+
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+    <%= for noun <- @nouns do %>
+        <tr>
+          <td><%= noun.word %></td>
+          <td><%= noun.wholesome %></td>
+
+          <td>
+            <div class="btn-group btn-group-block">
+              <%= link "Edit", to: noun_path(@conn, :edit, noun), class: "btn btn-sm" %>
+              <%= link "Delete", to: noun_path(@conn, :delete, noun), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-primary btn-sm" %>
+            </div>
+          </td>
+        </tr>
+    <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
