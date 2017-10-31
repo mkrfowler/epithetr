@@ -6,6 +6,10 @@
     <strong>Word:</strong>
     <%= @noun.word %>
   </li>
+  <li>
+    <strong>Wholesome:</strong>
+    <%= @noun.wholesome %>
+  </li>
 
 </ul>
 

@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Word</th>
+      <th>Wholesome</th>
 
       <th></th>
     </tr>
@@ -12,6 +13,7 @@
 <%= for noun <- @nouns do %>
     <tr>
       <td><%= noun.word %></td>
+      <td><%= noun.wholesome %></td>
 
       <td class="text-right">
         <span><%= link "Show", to: noun_path(@conn, :show, noun), class: "btn btn-default btn-xs" %></span>
