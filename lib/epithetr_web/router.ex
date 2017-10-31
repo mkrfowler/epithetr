@@ -27,5 +27,6 @@ defmodule EpithetrWeb.Router do
     pipe_through :api
 
     get "/words", WordController, :index
+    get "/words/unwholesome", WordController, :index
   end
 end
