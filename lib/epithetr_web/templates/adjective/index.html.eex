@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Word</th>
+      <th>Wholesome</th>
 
       <th></th>
     </tr>
@@ -12,6 +13,7 @@
 <%= for adjective <- @adjectives do %>
     <tr>
       <td><%= adjective.word %></td>
+      <td><%= adjective.wholesome %></td>
 
       <td class="text-right">
         <span><%= link "Show", to: adjective_path(@conn, :show, adjective), class: "btn btn-default btn-xs" %></span>

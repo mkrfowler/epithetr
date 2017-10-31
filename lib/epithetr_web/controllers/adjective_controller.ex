@@ -18,7 +18,7 @@ defmodule EpithetrWeb.AdjectiveController do
     case Words.create_adjective(adjective_params) do
       {:ok, adjective} ->
         conn
-        |> put_flash(:info, "Adjective created successfully.")
+        |> put_flash(:info, "Descriptor created successfully.")
         |> redirect(to: adjective_path(conn, :show, adjective))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
@@ -42,7 +42,7 @@ defmodule EpithetrWeb.AdjectiveController do
     case Words.update_adjective(adjective, adjective_params) do
       {:ok, adjective} ->
         conn
-        |> put_flash(:info, "Adjective updated successfully.")
+        |> put_flash(:info, "Descriptor updated successfully.")
         |> redirect(to: adjective_path(conn, :show, adjective))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", adjective: adjective, changeset: changeset)
@@ -54,7 +54,7 @@ defmodule EpithetrWeb.AdjectiveController do
     {:ok, _adjective} = Words.delete_adjective(adjective)
 
     conn
-    |> put_flash(:info, "Adjective deleted successfully.")
+    |> put_flash(:info, "Descriptor deleted successfully.")
     |> redirect(to: adjective_path(conn, :index))
   end
 end

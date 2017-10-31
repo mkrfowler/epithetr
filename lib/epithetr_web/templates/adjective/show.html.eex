@@ -6,6 +6,10 @@
     <strong>Word:</strong>
     <%= @adjective.word %>
   </li>
+  <li>
+    <strong>Wholesome:</strong>
+    <%= @adjective.wholesome %>
+  </li>
 
 </ul>
 

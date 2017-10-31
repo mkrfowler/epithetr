@@ -6,6 +6,7 @@ defmodule Epithetr.Words.Noun do
 
   schema "nouns" do
     field :word, :string
+    field :wholesome, :boolean
 
     timestamps()
   end
@@ -13,7 +14,7 @@ defmodule Epithetr.Words.Noun do
   @doc false
   def changeset(%Noun{} = noun, attrs) do
     noun
-    |> cast(attrs, [:word])
+    |> cast(attrs, [:word, :wholesome])
     |> validate_required([:word])
   end
 end

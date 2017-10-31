@@ -6,6 +6,7 @@ defmodule Epithetr.Words.Adjective do
 
   schema "adjectives" do
     field :word, :string
+    field :wholesome, :boolean
 
     timestamps()
   end
@@ -13,7 +14,7 @@ defmodule Epithetr.Words.Adjective do
   @doc false
   def changeset(%Adjective{} = adjective, attrs) do
     adjective
-    |> cast(attrs, [:word])
-    |> validate_required([:word])
+    |> cast(attrs, [:word, :wholesome])
+    |> validate_required([:word, :wholesome])
   end
 end
