@@ -6,7 +6,6 @@
   <thead>
     <tr>
       <th>Word</th>
-      <th>Wholesome</th>
 
       <th></th>
     </tr>
@@ -15,7 +14,6 @@
 <%= for noun <- @noun_page.entries do %>
     <tr>
       <td><%= noun.word %></td>
-      <td><%= noun.wholesome %></td>
 
       <td>
         <div class="btn-group btn-group-block">
