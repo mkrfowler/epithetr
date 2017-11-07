@@ -1,4 +1,12 @@
 <h1>Epithetr</h1>
+
+<p>Wholesome: <%= @wholesome %></p>
+<%= if @wholesome != "false" do %>
+<%= link "Unwholesome!", to: page_path(@conn, :index, wholesome: false) %>
+<%= else %>
+<%= link "Wholesome!", to: page_path(@conn, :index, wholesome: true) %>
+<%= end %>
+
 <div class='container columns'>
   <div class='col-6'>
     <h2>Descriptors</h2>
@@ -31,7 +39,7 @@
       </tbody>
     </table>
 
-    <%= pagination_links @adjective_page, noun_page: @noun_page.page_number, page_param: :adjective_page %>
+    <%= pagination_links @adjective_page, noun_page: @noun_page.page_number, wholesome: @wholesome, page_param: :adjective_page %>
   </div>
 
   <div class='col-6'>
@@ -65,6 +73,6 @@
       </tbody>
     </table>
 
-    <%= pagination_links @noun_page, adjective_page: @adjective_page.page_number, page_param: :noun_page %>
+    <%= pagination_links @noun_page, adjective_page: @adjective_page.page_number, wholesome: @wholesome, page_param: :noun_page %>
   </div>
 </div>

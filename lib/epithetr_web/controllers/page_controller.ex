@@ -2,23 +2,22 @@ defmodule EpithetrWeb.PageController do
   use EpithetrWeb, :controller
 
   alias Epithetr.Words
-  alias Epithetr.Words.Noun
-  alias Epithetr.Words.Adjective
   alias Epithetr.Repo
 
   def index(conn, params) do
-    # nouns = Words.filter_nouns()
-    # adjectives = Words.filter_adjectives()
+    wholesome = params["wholesome"] || "true"
+    |> String.to_existing_atom()
 
-    adjective_page = Adjective
+    adjective_page = Words.filter_adjectives(wholesome)
     |> Repo.paginate(%{page: params["adjective_page"]})
 
-    noun_page = Noun
+    noun_page = Words.filter_nouns(wholesome)
     |> Repo.paginate(%{page: params["noun_page"]})
 
     render(conn, "index.html",
       noun_page: noun_page,
-      adjective_page: adjective_page
+      adjective_page: adjective_page,
+      wholesome: wholesome
     )
   end
 end

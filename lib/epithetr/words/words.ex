@@ -32,12 +32,9 @@ defmodule Epithetr.Words do
   end
 
   def filter_nouns(wholesome \\ true) do
-    query = from noun in Noun,
+    from noun in Noun,
       order_by: [fragment("lower(?)", noun.word)],
       where: noun.wholesome == ^wholesome
-
-    query
-    |> Repo.all()
   end
 
   @doc """
@@ -150,9 +147,6 @@ defmodule Epithetr.Words do
     query = from adjective in Adjective,
       order_by: [fragment("lower(?)", adjective.word)],
       where: adjective.wholesome == ^wholesome
-
-    query
-    |> Repo.all()
   end
 
   @doc """
