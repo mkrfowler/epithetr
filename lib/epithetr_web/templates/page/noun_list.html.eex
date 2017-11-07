@@ -1,0 +1,31 @@
+<h2>Nouns</h2>
+
+<span><%= link "New Noun", to: noun_path(@conn, :new) %></span>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Word</th>
+      <th>Wholesome</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for noun <- @noun_page.entries do %>
+    <tr>
+      <td><%= noun.word %></td>
+      <td><%= noun.wholesome %></td>
+
+      <td>
+        <div class="btn-group btn-group-block">
+          <%= link "Edit", to: noun_path(@conn, :edit, noun), class: "btn btn-sm" %>
+          <%= link "Delete", to: noun_path(@conn, :delete, noun), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-primary btn-sm" %>
+        </div>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= pagination_links @noun_page, descriptor_page: @adjective_page.page_number, wholesome: @wholesome, distance: 5, next: "Next", previous: "Prev", page_param: :noun_page %>

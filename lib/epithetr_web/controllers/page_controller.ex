@@ -9,7 +9,7 @@ defmodule EpithetrWeb.PageController do
     |> String.to_existing_atom()
 
     adjective_page = Words.filter_adjectives(wholesome)
-    |> Repo.paginate(%{page: params["adjective_page"]})
+    |> Repo.paginate(%{page: params["descriptor_page"]})
 
     noun_page = Words.filter_nouns(wholesome)
     |> Repo.paginate(%{page: params["noun_page"]})
