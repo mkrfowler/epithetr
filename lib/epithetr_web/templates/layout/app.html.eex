@@ -18,7 +18,7 @@
     <div class="container">
       <header class='navbar'>
         <section class='navbar-section m-1 p-1'>
-          <h1>Epithetr
+          <h1 style='margin-bottom: 0;'>Epithetr
             <%= if assigns[:wholesome] != nil do %>
               <small class="label"><%= if assigns[:wholesome] == "false" do "UN" end %>WHOLESOME</small>
             <% end %>
@@ -37,6 +37,8 @@
           </section>
         <% end %>
       </header>
+
+      <div class="divider"></div>
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
