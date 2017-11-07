@@ -15,7 +15,7 @@
         </tr>
       </thead>
       <tbody>
-    <%= for adjective <- @adjectives do %>
+    <%= for adjective <- @adjective_page.entries do %>
         <tr>
           <td><%= adjective.word %></td>
           <td><%= adjective.wholesome %></td>
@@ -30,6 +30,8 @@
     <% end %>
       </tbody>
     </table>
+
+    <%= pagination_links @adjective_page, noun_page: @noun_page.page_number, page_param: :adjective_page %>
   </div>
 
   <div class='col-6'>
@@ -47,7 +49,7 @@
         </tr>
       </thead>
       <tbody>
-    <%= for noun <- @nouns do %>
+    <%= for noun <- @noun_page.entries do %>
         <tr>
           <td><%= noun.word %></td>
           <td><%= noun.wholesome %></td>
@@ -62,5 +64,7 @@
     <% end %>
       </tbody>
     </table>
+
+    <%= pagination_links @noun_page, adjective_page: @adjective_page.page_number, page_param: :noun_page %>
   </div>
 </div>

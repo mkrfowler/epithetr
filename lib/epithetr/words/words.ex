@@ -31,6 +31,15 @@ defmodule Epithetr.Words do
     Repo.all(Noun)
   end
 
+  def filter_nouns(wholesome \\ true) do
+    query = from noun in Noun,
+      order_by: [fragment("lower(?)", noun.word)],
+      where: noun.wholesome == ^wholesome
+
+    query
+    |> Repo.all()
+  end
+
   @doc """
   Gets a single noun.
 
@@ -135,6 +144,15 @@ defmodule Epithetr.Words do
   """
   def list_adjectives do
     Repo.all(Adjective)
+  end
+
+  def filter_adjectives(wholesome \\ true) do
+    query = from adjective in Adjective,
+      order_by: [fragment("lower(?)", adjective.word)],
+      where: adjective.wholesome == ^wholesome
+
+    query
+    |> Repo.all()
   end
 
   @doc """

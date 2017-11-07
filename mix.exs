@@ -20,7 +20,12 @@ defmodule Epithetr.Mixfile do
   def application do
     [
       mod: {Epithetr.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [
+        :logger,
+        :runtime_tools,
+        :scrivener_ecto,
+        :scrivener_html
+      ]
     ]
   end
 
@@ -41,7 +46,9 @@ defmodule Epithetr.Mixfile do
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
-      {:cors_plug, "~> 1.2"}
+      {:cors_plug, "~> 1.2"},
+      {:scrivener_ecto, "~> 1.0"},
+      {:scrivener_html, "~> 1.7"}
     ]
   end
 
