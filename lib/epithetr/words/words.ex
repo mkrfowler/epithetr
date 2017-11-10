@@ -129,10 +129,19 @@ defmodule Epithetr.Words do
 
   alias Epithetr.Words.Adjective
 
-  def random_adjectives(limit, wholesome \\ true) do
+  def random_adjectives(limit, wholesome) do
     query = from adjective in Adjective,
       order_by: [desc: fragment("RANDOM()")],
       where: adjective.wholesome == ^wholesome,
+      limit: ^limit
+
+    query
+    |> Repo.all()
+  end
+
+  def random_adjectives(limit) do
+    query = from adjective in Adjective,
+      order_by: [desc: fragment("RANDOM()")],
       limit: ^limit
 
     query
