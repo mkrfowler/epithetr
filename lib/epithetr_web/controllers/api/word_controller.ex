@@ -3,9 +3,9 @@ defmodule EpithetrWeb.Api.WordController do
 
   alias Epithetr.Words
 
-  def index(conn, _params) do
-    adjectives = Words.random_adjectives(1, true)
-    nouns = Words.random_nouns(1, true)
+  def index(conn, params) do
+    adjectives = Words.random_adjectives(params["adjectives"] || 1, true)
+    nouns = Words.random_nouns(params["nouns"] || 1, true)
 
     render conn, "index.json", adjectives: adjectives, nouns: nouns
   end
