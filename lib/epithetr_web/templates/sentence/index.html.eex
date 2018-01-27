@@ -1,0 +1,28 @@
+<h2>Listing Sentences</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Body</th>
+      <th>Wholesome</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for sentence <- @sentences do %>
+    <tr>
+      <td><%= sentence.body %></td>
+      <td><%= sentence.wholesome %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: sentence_path(@conn, :show, sentence), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: sentence_path(@conn, :edit, sentence), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: sentence_path(@conn, :delete, sentence), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Sentence", to: sentence_path(@conn, :new) %></span>

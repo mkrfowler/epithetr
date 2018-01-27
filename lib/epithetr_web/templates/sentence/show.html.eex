@@ -1,0 +1,18 @@
+<h2>Show Sentence</h2>
+
+<ul>
+
+  <li>
+    <strong>Body:</strong>
+    <%= @sentence.body %>
+  </li>
+
+  <li>
+    <strong>Wholesome:</strong>
+    <%= @sentence.wholesome %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: sentence_path(@conn, :edit, @sentence) %></span>
+<span><%= link "Back", to: sentence_path(@conn, :index) %></span>

@@ -1,0 +1,5 @@
+<h2>Edit Sentence</h2>
+
+<%= render "form.html", Map.put(assigns, :action, sentence_path(@conn, :update, @sentence)) %>
+
+<span><%= link "Back", to: sentence_path(@conn, :index) %></span>

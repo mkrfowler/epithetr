@@ -20,6 +20,7 @@ defmodule EpithetrWeb.Router do
     get "/", PageController, :index
     resources "/nouns", NounController
     resources "/descriptors", AdjectiveController
+    resources "/sentences", SentenceController
   end
 
   # Other scopes may use custom stacks.
