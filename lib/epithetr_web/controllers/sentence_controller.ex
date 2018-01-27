@@ -1,21 +1,21 @@
 defmodule EpithetrWeb.SentenceController do
   use EpithetrWeb, :controller
 
-  alias Epithetr.Word
-  alias Epithetr.Word.Sentence
+  alias Epithetr.Words
+  alias Epithetr.Words.Sentence
 
   def index(conn, _params) do
-    sentences = Word.list_sentences()
+    sentences = Words.list_sentences()
     render(conn, "index.html", sentences: sentences)
   end
 
   def new(conn, _params) do
-    changeset = Word.change_sentence(%Sentence{})
+    changeset = Words.change_sentence(%Sentence{})
     render(conn, "new.html", changeset: changeset)
   end
 
   def create(conn, %{"sentence" => sentence_params}) do
-    case Word.create_sentence(sentence_params) do
+    case Words.create_sentence(sentence_params) do
       {:ok, sentence} ->
         conn
         |> put_flash(:info, "Sentence created successfully.")
@@ -26,20 +26,20 @@ defmodule EpithetrWeb.SentenceController do
   end
 
   def show(conn, %{"id" => id}) do
-    sentence = Word.get_sentence!(id)
+    sentence = Words.get_sentence!(id)
     render(conn, "show.html", sentence: sentence)
   end
 
   def edit(conn, %{"id" => id}) do
-    sentence = Word.get_sentence!(id)
-    changeset = Word.change_sentence(sentence)
+    sentence = Words.get_sentence!(id)
+    changeset = Words.change_sentence(sentence)
     render(conn, "edit.html", sentence: sentence, changeset: changeset)
   end
 
   def update(conn, %{"id" => id, "sentence" => sentence_params}) do
-    sentence = Word.get_sentence!(id)
+    sentence = Words.get_sentence!(id)
 
-    case Word.update_sentence(sentence, sentence_params) do
+    case Words.update_sentence(sentence, sentence_params) do
       {:ok, sentence} ->
         conn
         |> put_flash(:info, "Sentence updated successfully.")
@@ -50,8 +50,8 @@ defmodule EpithetrWeb.SentenceController do
   end
 
   def delete(conn, %{"id" => id}) do
-    sentence = Word.get_sentence!(id)
-    {:ok, _sentence} = Word.delete_sentence(sentence)
+    sentence = Words.get_sentence!(id)
+    {:ok, _sentence} = Words.delete_sentence(sentence)
 
     conn
     |> put_flash(:info, "Sentence deleted successfully.")

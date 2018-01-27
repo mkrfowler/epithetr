@@ -29,5 +29,6 @@ defmodule EpithetrWeb.Router do
 
     get "/words", WordController, :index
     get "/words/unwholesome", WordController, :unwholesome_index
+    get "/sentences", SentenceController, :index
   end
 end

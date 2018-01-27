@@ -1,7 +1,7 @@
-defmodule Epithetr.Word.Sentence do
+defmodule Epithetr.Words.Sentence do
   use Ecto.Schema
   import Ecto.Changeset
-  alias Epithetr.Word.Sentence
+  alias Epithetr.Words.Sentence
 
 
   schema "sentences" do
