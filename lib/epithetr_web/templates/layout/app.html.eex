@@ -31,9 +31,9 @@
           <section class='navbar-section my-2 p-2'>
             <%= if assigns[:wholesome] != "false" do %>
               <%= link "UNWHOLESOME", to: page_path(@conn, :index, wholesome: false), class: "float-right" %>
-            <%= else %>
+            <% else %>
               <%= link "WHOLESOME", to: page_path(@conn, :index, wholesome: true) %>
-            <%= end %>
+            <% end %>
           </section>
         <% end %>
       </header>
