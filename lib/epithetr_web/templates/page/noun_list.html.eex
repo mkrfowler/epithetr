@@ -26,4 +26,4 @@
   </tbody>
 </table>
 
-<%= pagination_links @noun_page, descriptor_page: @adjective_page.page_number, wholesome: @wholesome, distance: 5, next: "Next", previous: "Prev", page_param: :noun_page %>
+<%= pagination_links @noun_page, descriptor_page: @descriptor_page.page_number, wholesome: @wholesome, distance: 5, next: "Next", previous: "Prev", page_param: :noun_page %>

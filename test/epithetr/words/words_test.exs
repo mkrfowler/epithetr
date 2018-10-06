@@ -63,63 +63,63 @@ defmodule Epithetr.WordsTest do
     end
   end
 
-  describe "adjectives" do
-    alias Epithetr.Words.Adjective
+  describe "descriptors" do
+    alias Epithetr.Words.Descriptor
 
     @valid_attrs %{word: "some word", wholesome: false}
     @update_attrs %{word: "some updated word"}
     @invalid_attrs %{word: nil}
 
-    def adjective_fixture(attrs \\ %{}) do
-      {:ok, adjective} =
+    def descriptor_fixture(attrs \\ %{}) do
+      {:ok, descriptor} =
         attrs
         |> Enum.into(@valid_attrs)
-        |> Words.create_adjective()
+        |> Words.create_descriptor()
 
-      adjective
+      descriptor
     end
 
-    test "list_adjectives/0 returns all adjectives" do
-      adjective = adjective_fixture()
-      assert Words.list_adjectives() == [adjective]
+    test "list_descriptors/0 returns all descriptors" do
+      descriptor = descriptor_fixture()
+      assert Words.list_descriptors() == [descriptor]
     end
 
-    test "get_adjective!/1 returns the adjective with given id" do
-      adjective = adjective_fixture()
-      assert Words.get_adjective!(adjective.id) == adjective
+    test "get_descriptor!/1 returns the descriptor with given id" do
+      descriptor = descriptor_fixture()
+      assert Words.get_descriptor!(descriptor.id) == descriptor
     end
 
-    test "create_adjective/1 with valid data creates a adjective" do
-      assert {:ok, %Adjective{} = adjective} = Words.create_adjective(@valid_attrs)
-      assert adjective.word == "some word"
+    test "create_descriptor/1 with valid data creates a descriptor" do
+      assert {:ok, %Descriptor{} = descriptor} = Words.create_descriptor(@valid_attrs)
+      assert descriptor.word == "some word"
     end
 
-    test "create_adjective/1 with invalid data returns error changeset" do
-      assert {:error, %Ecto.Changeset{}} = Words.create_adjective(@invalid_attrs)
+    test "create_descriptor/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Words.create_descriptor(@invalid_attrs)
     end
 
-    test "update_adjective/2 with valid data updates the adjective" do
-      adjective = adjective_fixture()
-      assert {:ok, adjective} = Words.update_adjective(adjective, @update_attrs)
-      assert %Adjective{} = adjective
-      assert adjective.word == "some updated word"
+    test "update_descriptor/2 with valid data updates the descriptor" do
+      descriptor = descriptor_fixture()
+      assert {:ok, descriptor} = Words.update_descriptor(descriptor, @update_attrs)
+      assert %Descriptor{} = descriptor
+      assert descriptor.word == "some updated word"
     end
 
-    test "update_adjective/2 with invalid data returns error changeset" do
-      adjective = adjective_fixture()
-      assert {:error, %Ecto.Changeset{}} = Words.update_adjective(adjective, @invalid_attrs)
-      assert adjective == Words.get_adjective!(adjective.id)
+    test "update_descriptor/2 with invalid data returns error changeset" do
+      descriptor = descriptor_fixture()
+      assert {:error, %Ecto.Changeset{}} = Words.update_descriptor(descriptor, @invalid_attrs)
+      assert descriptor == Words.get_descriptor!(descriptor.id)
     end
 
-    test "delete_adjective/1 deletes the adjective" do
-      adjective = adjective_fixture()
-      assert {:ok, %Adjective{}} = Words.delete_adjective(adjective)
-      assert_raise Ecto.NoResultsError, fn -> Words.get_adjective!(adjective.id) end
+    test "delete_descriptor/1 deletes the descriptor" do
+      descriptor = descriptor_fixture()
+      assert {:ok, %Descriptor{}} = Words.delete_descriptor(descriptor)
+      assert_raise Ecto.NoResultsError, fn -> Words.get_descriptor!(descriptor.id) end
     end
 
-    test "change_adjective/1 returns a adjective changeset" do
-      adjective = adjective_fixture()
-      assert %Ecto.Changeset{} = Words.change_adjective(adjective)
+    test "change_descriptor/1 returns a descriptor changeset" do
+      descriptor = descriptor_fixture()
+      assert %Ecto.Changeset{} = Words.change_descriptor(descriptor)
     end
   end
 end

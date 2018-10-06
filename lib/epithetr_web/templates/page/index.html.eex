@@ -1,7 +1,7 @@
 <div class='container'>
   <div class="columns">
     <div class="column col-6 col-xs-12">
-      <%= render "adjectives_list.html", Map.put(assigns, :conn, @conn)  %>
+      <%= render "descriptors_list.html", Map.put(assigns, :conn, @conn)  %>
     </div>
     <div class="column col-6 col-xs-12">
       <%= render "noun_list.html", Map.put(assigns, :conn, @conn)  %>
