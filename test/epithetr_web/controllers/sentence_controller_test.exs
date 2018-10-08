@@ -1,14 +1,14 @@
 defmodule EpithetrWeb.SentenceControllerTest do
   use EpithetrWeb.ConnCase
 
-  alias Epithetr.Word
+  alias Epithetr.Words
 
   @create_attrs %{body: "some body", wholesome: true}
   @update_attrs %{body: "some updated body", wholesome: false}
   @invalid_attrs %{body: nil, wholesome: nil}
 
   def fixture(:sentence) do
-    {:ok, sentence} = Word.create_sentence(@create_attrs)
+    {:ok, sentence} = Words.create_sentence(@create_attrs)
     sentence
   end
 
