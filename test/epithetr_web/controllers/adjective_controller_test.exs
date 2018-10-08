@@ -3,7 +3,7 @@ defmodule EpithetrWeb.AdjectiveControllerTest do
 
   alias Epithetr.Words
 
-  @create_attrs %{word: "some word"}
+  @create_attrs %{word: "some word", wholesome: false}
   @update_attrs %{word: "some updated word"}
   @invalid_attrs %{word: nil}
 
@@ -15,14 +15,14 @@ defmodule EpithetrWeb.AdjectiveControllerTest do
   describe "index" do
     test "lists all adjectives", %{conn: conn} do
       conn = get conn, adjective_path(conn, :index)
-      assert html_response(conn, 200) =~ "Listing Adjectives"
+      assert html_response(conn, 200) =~ "Listing Descriptors"
     end
   end
 
   describe "new adjective" do
     test "renders form", %{conn: conn} do
       conn = get conn, adjective_path(conn, :new)
-      assert html_response(conn, 200) =~ "New Adjective"
+      assert html_response(conn, 200) =~ "New Descriptor"
     end
   end
 
@@ -34,12 +34,12 @@ defmodule EpithetrWeb.AdjectiveControllerTest do
       assert redirected_to(conn) == adjective_path(conn, :show, id)
 
       conn = get conn, adjective_path(conn, :show, id)
-      assert html_response(conn, 200) =~ "Show Adjective"
+      assert html_response(conn, 200) =~ "Show Descriptor"
     end
 
     test "renders errors when data is invalid", %{conn: conn} do
       conn = post conn, adjective_path(conn, :create), adjective: @invalid_attrs
-      assert html_response(conn, 200) =~ "New Adjective"
+      assert html_response(conn, 200) =~ "New Descriptor"
     end
   end
 
@@ -48,7 +48,7 @@ defmodule EpithetrWeb.AdjectiveControllerTest do
 
     test "renders form for editing chosen adjective", %{conn: conn, adjective: adjective} do
       conn = get conn, adjective_path(conn, :edit, adjective)
-      assert html_response(conn, 200) =~ "Edit Adjective"
+      assert html_response(conn, 200) =~ "Edit Descriptor"
     end
   end
 
@@ -65,7 +65,7 @@ defmodule EpithetrWeb.AdjectiveControllerTest do
 
     test "renders errors when data is invalid", %{conn: conn, adjective: adjective} do
       conn = put conn, adjective_path(conn, :update, adjective), adjective: @invalid_attrs
-      assert html_response(conn, 200) =~ "Edit Adjective"
+      assert html_response(conn, 200) =~ "Edit Descriptor"
     end
   end
 

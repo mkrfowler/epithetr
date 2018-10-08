@@ -6,7 +6,7 @@ defmodule Epithetr.WordsTest do
   describe "nouns" do
     alias Epithetr.Words.Noun
 
-    @valid_attrs %{word: "some word"}
+    @valid_attrs %{word: "some word", wholesome: false}
     @update_attrs %{word: "some updated word"}
     @invalid_attrs %{word: nil}
 
@@ -66,7 +66,7 @@ defmodule Epithetr.WordsTest do
   describe "adjectives" do
     alias Epithetr.Words.Adjective
 
-    @valid_attrs %{word: "some word"}
+    @valid_attrs %{word: "some word", wholesome: false}
     @update_attrs %{word: "some updated word"}
     @invalid_attrs %{word: nil}
 
