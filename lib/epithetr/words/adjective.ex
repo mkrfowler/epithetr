@@ -1,10 +1,10 @@
-defmodule Epithetr.Words.Adjective do
+defmodule Epithetr.Words.Descriptor do
   use Ecto.Schema
   import Ecto.Changeset
-  alias Epithetr.Words.Adjective
+  alias Epithetr.Words.Descriptor
 
 
-  schema "adjectives" do
+  schema "descriptors" do
     field :word, :string
     field :wholesome, :boolean
 
@@ -12,8 +12,8 @@ defmodule Epithetr.Words.Adjective do
   end
 
   @doc false
-  def changeset(%Adjective{} = adjective, attrs) do
-    adjective
+  def changeset(%Descriptor{} = descriptor, attrs) do
+    descriptor
     |> cast(attrs, [:word, :wholesome])
     |> validate_required([:word, :wholesome])
   end

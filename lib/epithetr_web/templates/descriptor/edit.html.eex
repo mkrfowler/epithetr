@@ -1,0 +1,5 @@
+<h2>Edit Descriptor</h2>
+
+<%= render "form.html", Map.put(assigns, :action, descriptor_path(@conn, :update, @descriptor)) %>
+
+<span><%= link "Back", to: page_path(@conn, :index) %></span>

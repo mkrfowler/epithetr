@@ -1,0 +1,29 @@
+<h2>Descriptors</h2>
+
+<span><%= link "New Descriptor", to: descriptor_path(@conn, :new) %></span>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Word</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for descriptor <- @descriptor_page.entries do %>
+    <tr>
+      <td><%= descriptor.word %></td>
+
+      <td>
+        <div class="btn-group btn-group-block">
+          <%= link "Edit", to: descriptor_path(@conn, :edit, descriptor), class: "btn btn-sm" %>
+          <%= link "Delete", to: descriptor_path(@conn, :delete, descriptor), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-primary btn-sm" %>
+        </div>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= pagination_links @descriptor_page, noun_page: @noun_page.page_number, wholesome: @wholesome, distance: 5, next: "Next", previous: "Prev", page_param: :descriptor_page %>

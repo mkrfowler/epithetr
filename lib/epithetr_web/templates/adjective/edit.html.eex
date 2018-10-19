@@ -1,5 +1,0 @@
-<h2>Edit Descriptor</h2>
-
-<%= render "form.html", Map.put(assigns, :action, adjective_path(@conn, :update, @adjective)) %>
-
-<span><%= link "Back", to: page_path(@conn, :index) %></span>

@@ -1,9 +1,10 @@
 defmodule EpithetrWeb.Api.WordView do
   use EpithetrWeb, :view
 
-  def render("index.json", %{adjectives: adjectives, nouns: nouns}) do
+  def render("index.json", %{descriptors: descriptors, nouns: nouns}) do
     %{
-      adjectives: render_many(adjectives, EpithetrWeb.Api.WordView, "word.json"),
+      adjectives: render_many(descriptors, EpithetrWeb.Api.WordView, "word.json"),
+      descriptors: render_many(descriptors, EpithetrWeb.Api.WordView, "word.json"),
       nouns: render_many(nouns, EpithetrWeb.Api.WordView, "word.json"),
     }
   end

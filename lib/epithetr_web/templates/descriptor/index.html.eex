@@ -1,0 +1,28 @@
+<h2>Listing Descriptors</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Word</th>
+      <th>Wholesome</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for descriptor <- @descriptors do %>
+    <tr>
+      <td><%= descriptor.word %></td>
+      <td><%= descriptor.wholesome %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: descriptor_path(@conn, :show, descriptor), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: descriptor_path(@conn, :edit, descriptor), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: descriptor_path(@conn, :delete, descriptor), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Descriptor", to: descriptor_path(@conn, :new) %></span>

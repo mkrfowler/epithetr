@@ -1,3 +1,3 @@
-defmodule EpithetrWeb.AdjectiveView do
+defmodule EpithetrWeb.DescriptorView do
   use EpithetrWeb, :view
 end

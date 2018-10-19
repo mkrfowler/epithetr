@@ -128,20 +128,20 @@ defmodule Epithetr.Words do
     Noun.changeset(noun, %{})
   end
 
-  alias Epithetr.Words.Adjective
+  alias Epithetr.Words.Descriptor
 
-  def random_adjectives(limit, wholesome) do
-    query = from adjective in Adjective,
+  def random_descriptors(limit, wholesome) do
+    query = from descriptor in Descriptor,
       order_by: [desc: fragment("RANDOM()")],
-      where: adjective.wholesome == ^wholesome,
+      where: descriptor.wholesome == ^wholesome,
       limit: ^limit
 
     query
     |> Repo.all()
   end
 
-  def random_adjectives(limit) do
-    query = from adjective in Adjective,
+  def random_descriptors(limit) do
+    query = from descriptor in Descriptor,
       order_by: [desc: fragment("RANDOM()")],
       limit: ^limit
 
@@ -150,103 +150,103 @@ defmodule Epithetr.Words do
   end
 
   @doc """
-  Returns the list of adjectives.
+  Returns the list of descriptors.
 
   ## Examples
 
-      iex> list_adjectives()
-      [%Adjective{}, ...]
+      iex> list_descriptors()
+      [%Descriptor{}, ...]
 
   """
-  def list_adjectives do
-    Repo.all(Adjective)
+  def list_descriptors do
+    Repo.all(Descriptor)
   end
 
-  def filter_adjectives(wholesome \\ true) do
-    from adjective in Adjective,
-      order_by: [fragment("lower(?)", adjective.word)],
-      where: adjective.wholesome == ^wholesome
+  def filter_descriptors(wholesome \\ true) do
+    from descriptor in Descriptor,
+      order_by: [fragment("lower(?)", descriptor.word)],
+      where: descriptor.wholesome == ^wholesome
   end
 
   @doc """
-  Gets a single adjective.
+  Gets a single descriptor.
 
-  Raises `Ecto.NoResultsError` if the Adjective does not exist.
+  Raises `Ecto.NoResultsError` if the Descriptor does not exist.
 
   ## Examples
 
-      iex> get_adjective!(123)
-      %Adjective{}
+      iex> get_descriptor!(123)
+      %Descriptor{}
 
-      iex> get_adjective!(456)
+      iex> get_descriptor!(456)
       ** (Ecto.NoResultsError)
 
   """
-  def get_adjective!(id), do: Repo.get!(Adjective, id)
+  def get_descriptor!(id), do: Repo.get!(Descriptor, id)
 
   @doc """
-  Creates a adjective.
+  Creates a descriptor.
 
   ## Examples
 
-      iex> create_adjective(%{field: value})
-      {:ok, %Adjective{}}
+      iex> create_descriptor(%{field: value})
+      {:ok, %Descriptor{}}
 
-      iex> create_adjective(%{field: bad_value})
+      iex> create_descriptor(%{field: bad_value})
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_adjective(attrs \\ %{}) do
-    %Adjective{}
-    |> Adjective.changeset(attrs)
+  def create_descriptor(attrs \\ %{}) do
+    %Descriptor{}
+    |> Descriptor.changeset(attrs)
     |> Repo.insert()
   end
 
   @doc """
-  Updates a adjective.
+  Updates a descriptor.
 
   ## Examples
 
-      iex> update_adjective(adjective, %{field: new_value})
-      {:ok, %Adjective{}}
+      iex> update_descriptor(descriptor, %{field: new_value})
+      {:ok, %Descriptor{}}
 
-      iex> update_adjective(adjective, %{field: bad_value})
+      iex> update_descriptor(descriptor, %{field: bad_value})
       {:error, %Ecto.Changeset{}}
 
   """
-  def update_adjective(%Adjective{} = adjective, attrs) do
-    adjective
-    |> Adjective.changeset(attrs)
+  def update_descriptor(%Descriptor{} = descriptor, attrs) do
+    descriptor
+    |> Descriptor.changeset(attrs)
     |> Repo.update()
   end
 
   @doc """
-  Deletes a Adjective.
+  Deletes a Descriptor.
 
   ## Examples
 
-      iex> delete_adjective(adjective)
-      {:ok, %Adjective{}}
+      iex> delete_descriptor(descriptor)
+      {:ok, %Descriptor{}}
 
-      iex> delete_adjective(adjective)
+      iex> delete_descriptor(descriptor)
       {:error, %Ecto.Changeset{}}
 
   """
-  def delete_adjective(%Adjective{} = adjective) do
-    Repo.delete(adjective)
+  def delete_descriptor(%Descriptor{} = descriptor) do
+    Repo.delete(descriptor)
   end
 
   @doc """
-  Returns an `%Ecto.Changeset{}` for tracking adjective changes.
+  Returns an `%Ecto.Changeset{}` for tracking descriptor changes.
 
   ## Examples
 
-      iex> change_adjective(adjective)
-      %Ecto.Changeset{source: %Adjective{}}
+      iex> change_descriptor(descriptor)
+      %Ecto.Changeset{source: %Descriptor{}}
 
   """
-  def change_adjective(%Adjective{} = adjective) do
-    Adjective.changeset(adjective, %{})
+  def change_descriptor(%Descriptor{} = descriptor) do
+    Descriptor.changeset(descriptor, %{})
   end
 
   @doc """

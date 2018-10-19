@@ -8,7 +8,7 @@ defmodule EpithetrWeb.PageController do
     wholesome = params["wholesome"] || "true"
     |> String.to_existing_atom()
 
-    adjective_page = Words.filter_adjectives(wholesome)
+    descriptor_page = Words.filter_descriptors(wholesome)
     |> Repo.paginate(%{page: params["descriptor_page"]})
 
     noun_page = Words.filter_nouns(wholesome)
@@ -16,7 +16,7 @@ defmodule EpithetrWeb.PageController do
 
     render(conn, "index.html",
       noun_page: noun_page,
-      adjective_page: adjective_page,
+      descriptor_page: descriptor_page,
       wholesome: wholesome
     )
   end

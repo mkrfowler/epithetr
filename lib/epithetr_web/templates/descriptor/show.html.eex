@@ -4,14 +4,14 @@
 
   <li>
     <strong>Word:</strong>
-    <%= @adjective.word %>
+    <%= @descriptor.word %>
   </li>
   <li>
     <strong>Wholesome:</strong>
-    <%= @adjective.wholesome %>
+    <%= @descriptor.wholesome %>
   </li>
 
 </ul>
 
-<span><%= link "Edit", to: adjective_path(@conn, :edit, @adjective) %></span>
+<span><%= link "Edit", to: descriptor_path(@conn, :edit, @descriptor) %></span>
 <span><%= link "Back", to: page_path(@conn, :index) %></span>
